@@ -1,0 +1,71 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "comfyui-longcat-avatar-pixelailabs"
+description = "PixelAI Labs ComfyUI nodes for LongCat-Video-Avatar 1.6 (and 1.5): one photo + a voice -> lip-synced avatar video, official INT8 model, 8 steps, DMD/OPSD LoRA switch, SageAttention."
+version = "1.6.0"
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = ">=3.10,<3.14"
+authors = [{name = "PixelAI Labs"}, {name = "rookiestar28 (1.5 base pack)"}]
+dependencies = [
+    "diffusers>=0.35.1",
+    "transformers>=4.41.0",
+    "safetensors>=0.4.5",
+    "einops>=0.8.0",
+    "ftfy>=6.2.0",
+    "regex>=2024.5.15",
+    "tqdm>=4.66.0",
+    "Pillow>=10.0.0",
+    "numpy>=1.26.0",
+    "scipy>=1.11.0",
+    "soundfile>=0.12.1",
+    "librosa>=0.10.0",
+    "pyloudnorm>=0.1.1",
+    "imageio>=2.34.0",
+    "imageio-ffmpeg>=0.5.1",
+    "audio-separator>=0.30.2",
+    "onnx>=1.18.0",
+    "onnxruntime>=1.16.3",
+    "huggingface_hub>=0.23",
+]
+classifiers = [
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Environment :: GPU :: NVIDIA CUDA",
+]
+
+[project.urls]
+Repository = "https://github.com/Pixelailabs/ComfyUI-LongCat-Avatar-PixelAILabs"
+Documentation = "https://github.com/Pixelailabs/ComfyUI-LongCat-Avatar-PixelAILabs#readme"
+"Bug Tracker" = "https://github.com/Pixelailabs/ComfyUI-LongCat-Avatar-PixelAILabs/issues"
+
+[tool.comfy]
+PublisherId = "pixelailabs"
+DisplayName = "LongCat Avatar 1.6 (PixelAI Labs)"
+Icon = "LongCat_Video/assets/longcat-video_logo.svg"
+requires-comfyui = ">=0.22.3"
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+extend-exclude = [
+    ".planning",
+    ".sessions",
+    "reference",
+    "LongCat_Video/longcat_video",
+    "LongCat_Video/whisper-large-v3",
+    "LongCat_Video/LongCat-Video",
+    "LongCat_Video/assets",
+]
+
+[tool.ruff.lint]
+select = [
+    "E9",
+    "F63",
+    "F7",
+    "F82",
+    "E722",
+]

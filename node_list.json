@@ -1,0 +1,11 @@
+{
+  "PixelAILabs_LongCatAvatar_Model": "Load LongCat-Video-Avatar 1.6 / 1.5 (INT8 or bf16), auto-download, LoRA switch, attention.",
+  "PixelAILabs_LongCatAvatar_Sampler": "Generate a lip-synced avatar video from a photo and audio conditioning.",
+  "PixelAILabs_LongCatAvatar_TextEncode": "Encode the scene prompt with UMT5 (Load CLIP, type wan).",
+  "PixelAILabs_LongCatAvatar_AudioEncode": "Turn a voice into LongCat lip-sync features.",
+  "PixelAILabs_LongCatAvatar_AudioWindow": "Pick a continuation window from audio conditioning.",
+  "PixelAILabs_LongCatAvatar_AudioCrop": "Crop an audio clip.",
+  "PixelAILabs_LongCatAvatar_VocalExtract": "Extract the vocal track from music or noise.",
+  "PixelAILabs_LongCatAvatar_VocalModel": "Load the vocal separation model.",
+  "PixelAILabs_LongCatAvatar_Whisper": "Load Whisper large-v3 (auto-download)."
+}

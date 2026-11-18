@@ -1,0 +1,1069 @@
+{
+ "last_node_id": 16,
+ "last_link_id": 13,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "LoadImage",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "LoadImage"
+   },
+   "widgets_values": [
+    "avatar.png",
+    "image"
+   ],
+   "inputs": [
+    {
+     "name": "image",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "image"
+     }
+    },
+    {
+     "name": "upload",
+     "type": "IMAGEUPLOAD",
+     "link": null,
+     "widget": {
+      "name": "upload"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      4
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": []
+    }
+   ],
+   "pos": [
+    -440,
+    90
+   ],
+   "size": [
+    320,
+    452
+   ],
+   "title": "Load Image: avatar photo",
+   "order": 0,
+   "flags": {}
+  },
+  {
+   "id": 2,
+   "type": "LoadAudio",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "LoadAudio"
+   },
+   "widgets_values": [
+    "voice.wav",
+    "image"
+   ],
+   "inputs": [
+    {
+     "name": "audio",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "audio"
+     }
+    },
+    {
+     "name": "upload",
+     "type": "IMAGEUPLOAD",
+     "link": null,
+     "widget": {
+      "name": "upload"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "AUDIO",
+     "type": "AUDIO",
+     "links": [
+      7,
+      10
+     ]
+    }
+   ],
+   "pos": [
+    -780,
+    573
+   ],
+   "size": [
+    280,
+    166
+   ],
+   "order": 1,
+   "flags": {}
+  },
+  {
+   "id": 3,
+   "type": "CLIPLoader",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "CLIPLoader"
+   },
+   "widgets_values": [
+    "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+    "wan",
+    "default"
+   ],
+   "inputs": [
+    {
+     "name": "clip_name",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "clip_name"
+     }
+    },
+    {
+     "name": "type",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "type"
+     }
+    },
+    {
+     "name": "device",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "device"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      5
+     ]
+    }
+   ],
+   "pos": [
+    -980,
+    -538
+   ],
+   "size": [
+    400,
+    136
+   ],
+   "color": "#432",
+   "bgcolor": "#653",
+   "order": 2,
+   "flags": {}
+  },
+  {
+   "id": 4,
+   "type": "PixelAILabs_LongCatAvatar_TextEncode",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "PixelAILabs_LongCatAvatar_TextEncode"
+   },
+   "widgets_values": [
+    "LongCat-Video",
+    false,
+    "cpu",
+    "A young woman with copper-red wavy hair, green eyes and gold hoop earrings sits in a dark home studio and talks straight to the camera like a YouTuber. She wears a black blazer over a brown satin top, a podcast mic on a boom arm at the lower left. She speaks naturally and warmly, small head movements, a light smile, relaxed shoulders, hands out of frame. Soft key light from the left, dark background, static camera, medium close-up.",
+    "Close-up, Bright tones, overexposed, static, blurred details, subtitles, style, works, paintings, images, static, overall gray, worst quality, low quality, JPEG compression residue, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn faces, deformed, disfigured, misshapen limbs, fused fingers, still picture, messy background, three legs, many people in the background, walking backwards."
+   ],
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 5
+    },
+    {
+     "name": "text_encoder_root",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "text_encoder_root"
+     }
+    },
+    {
+     "name": "auto_download_missing_text_encoder",
+     "type": "BOOLEAN",
+     "link": null,
+     "widget": {
+      "name": "auto_download_missing_text_encoder"
+     }
+    },
+    {
+     "name": "offload_device",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "offload_device"
+     }
+    },
+    {
+     "name": "prompt",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "prompt"
+     }
+    },
+    {
+     "name": "negative_prompt",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "negative_prompt"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "te_cond",
+     "type": "CONDITIONING",
+     "links": [
+      2
+     ]
+    }
+   ],
+   "pos": [
+    -520,
+    -538
+   ],
+   "size": [
+    400,
+    278
+   ],
+   "order": 3,
+   "flags": {}
+  },
+  {
+   "id": 5,
+   "type": "PixelAILabs_LongCatAvatar_Whisper",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "PixelAILabs_LongCatAvatar_Whisper"
+   },
+   "widgets_values": [
+    "auto (models/longcat, downloads if missing)"
+   ],
+   "inputs": [
+    {
+     "name": "audio_encoder",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "audio_encoder"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "AUDIO_ENCODER",
+     "type": "AUDIO_ENCODER",
+     "links": [
+      6
+     ]
+    }
+   ],
+   "pos": [
+    -961,
+    -185
+   ],
+   "size": [
+    397,
+    88
+   ],
+   "order": 4,
+   "flags": {}
+  },
+  {
+   "id": 6,
+   "type": "PixelAILabs_LongCatAvatar_AudioEncode",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "PixelAILabs_LongCatAvatar_AudioEncode"
+   },
+   "widgets_values": [
+    25,
+    "para",
+    "",
+    "1.6"
+   ],
+   "inputs": [
+    {
+     "name": "audio_encoder",
+     "type": "AUDIO_ENCODER",
+     "link": 6
+    },
+    {
+     "name": "audio",
+     "type": "AUDIO",
+     "link": 7
+    },
+    {
+     "name": "left_audio",
+     "type": "AUDIO",
+     "link": null
+    },
+    {
+     "name": "save_fps",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "save_fps"
+     }
+    },
+    {
+     "name": "audio_type",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "audio_type"
+     }
+    },
+    {
+     "name": "p_box",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "p_box"
+     }
+    },
+    {
+     "name": "model_version",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "model_version"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "au_cond",
+     "type": "CONDITIONING",
+     "links": [
+      3
+     ]
+    }
+   ],
+   "pos": [
+    -504,
+    -185
+   ],
+   "size": [
+    384,
+    200
+   ],
+   "order": 5,
+   "flags": {}
+  },
+  {
+   "id": 7,
+   "type": "PixelAILabs_LongCatAvatar_Model",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "PixelAILabs_LongCatAvatar_Model"
+   },
+   "widgets_values": [
+    "1.6",
+    "official_int8_sharded",
+    "auto",
+    true,
+    "auto (models/longcat, downloads if missing)",
+    "none",
+    4,
+    1.0,
+    false,
+    false
+   ],
+   "inputs": [
+    {
+     "name": "model_version",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "model_version"
+     }
+    },
+    {
+     "name": "inference_weight_mode",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "inference_weight_mode"
+     }
+    },
+    {
+     "name": "attention_mode",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "attention_mode"
+     }
+    },
+    {
+     "name": "auto_download_missing_weights",
+     "type": "BOOLEAN",
+     "link": null,
+     "widget": {
+      "name": "auto_download_missing_weights"
+     }
+    },
+    {
+     "name": "vae",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "vae"
+     }
+    },
+    {
+     "name": "lora",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "lora"
+     }
+    },
+    {
+     "name": "mix_steps",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "mix_steps"
+     }
+    },
+    {
+     "name": "mix_alpha",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "mix_alpha"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "links": [
+      1
+     ]
+    }
+   ],
+   "pos": [
+    -520,
+    -869
+   ],
+   "size": [
+    400,
+    256
+   ],
+   "color": "#323",
+   "bgcolor": "#535",
+   "order": 6,
+   "flags": {}
+  },
+  {
+   "id": 8,
+   "type": "PixelAILabs_LongCatAvatar_Sampler",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "PixelAILabs_LongCatAvatar_Sampler"
+   },
+   "widgets_values": [
+    "ai2v",
+    "480p",
+    42,
+    "fixed",
+    8,
+    1.0,
+    1.0,
+    10,
+    3,
+    1,
+    "",
+    "cpu",
+    false
+   ],
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 1
+    },
+    {
+     "name": "te_cond",
+     "type": "CONDITIONING",
+     "link": 2
+    },
+    {
+     "name": "au_cond",
+     "type": "CONDITIONING",
+     "link": 3
+    },
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 4
+    },
+    {
+     "name": "mux_audio",
+     "type": "AUDIO",
+     "link": 11
+    },
+    {
+     "name": "stage_1",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "stage_1"
+     }
+    },
+    {
+     "name": "resolution",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "resolution"
+     }
+    },
+    {
+     "name": "seed",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "seed"
+     }
+    },
+    {
+     "name": "steps",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "steps"
+     }
+    },
+    {
+     "name": "text_guidance_scale",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "text_guidance_scale"
+     }
+    },
+    {
+     "name": "audio_guidance_scale",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "audio_guidance_scale"
+     }
+    },
+    {
+     "name": "ref_img_index",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "ref_img_index"
+     }
+    },
+    {
+     "name": "mask_frame_range",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "mask_frame_range"
+     }
+    },
+    {
+     "name": "block_num",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "block_num"
+     }
+    },
+    {
+     "name": "mux_audio_path",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "mux_audio_path"
+     }
+    },
+    {
+     "name": "offload_device",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "offload_device"
+     }
+    },
+    {
+     "name": "debug_mode",
+     "type": "BOOLEAN",
+     "link": null,
+     "widget": {
+      "name": "debug_mode"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "links": [
+      8
+     ]
+    },
+    {
+     "name": "video_path",
+     "type": "STRING",
+     "links": []
+    }
+   ],
+   "pos": [
+    0,
+    30
+   ],
+   "size": [
+    347,
+    456
+   ],
+   "order": 7,
+   "flags": {}
+  },
+  {
+   "id": 9,
+   "type": "CreateVideo",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "CreateVideo"
+   },
+   "widgets_values": [
+    25,
+    "auto",
+    "sRGB",
+    "auto",
+    "none"
+   ],
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 8
+    },
+    {
+     "name": "audio",
+     "type": "AUDIO",
+     "link": 13
+    },
+    {
+     "name": "fps",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "fps"
+     }
+    },
+    {
+     "name": "bit_depth",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "bit_depth"
+     }
+    },
+    {
+     "name": "color_space",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "color_space"
+     }
+    },
+    {
+     "name": "chroma_subsampling",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "chroma_subsampling"
+     }
+    },
+    {
+     "name": "codec",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "codec"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "VIDEO",
+     "type": "VIDEO",
+     "links": [
+      9
+     ]
+    }
+   ],
+   "pos": [
+    407,
+    30
+   ],
+   "size": [
+    284,
+    204
+   ],
+   "order": 8,
+   "flags": {}
+  },
+  {
+   "id": 10,
+   "type": "SaveVideo",
+   "mode": 0,
+   "properties": {
+    "Node name for S&R": "SaveVideo"
+   },
+   "widgets_values": [
+    "longcat16/test01",
+    "auto",
+    "auto",
+    "auto"
+   ],
+   "inputs": [
+    {
+     "name": "video",
+     "type": "VIDEO",
+     "link": 9
+    },
+    {
+     "name": "filename_prefix",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "filename_prefix"
+     }
+    },
+    {
+     "name": "format.codec",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "link": null,
+     "widget": {
+      "name": "format.codec"
+     }
+    },
+    {
+     "name": "format",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "link": null,
+     "widget": {
+      "name": "format"
+     }
+    },
+    {
+     "name": "codec",
+     "type": "COMFY_DYNAMICCOMBO_V3",
+     "link": null,
+     "widget": {
+      "name": "codec"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "video",
+     "type": "VIDEO",
+     "links": []
+    }
+   ],
+   "pos": [
+    751,
+    30
+   ],
+   "size": [
+    520,
+    680
+   ],
+   "order": 9,
+   "flags": {}
+  },
+  {
+   "id": 11,
+   "type": "Reroute",
+   "mode": 0,
+   "pos": [
+    -195,
+    573
+   ],
+   "size": [
+    75,
+    26
+   ],
+   "inputs": [
+    {
+     "name": "",
+     "type": "*",
+     "link": 10
+    }
+   ],
+   "outputs": [
+    {
+     "name": "",
+     "type": "AUDIO",
+     "links": [
+      11,
+      12
+     ]
+    }
+   ],
+   "properties": {
+    "showOutputText": false,
+    "horizontal": false
+   },
+   "widgets_values": [],
+   "order": 10,
+   "flags": {}
+  },
+  {
+   "id": 12,
+   "type": "Reroute",
+   "mode": 0,
+   "pos": [
+    272,
+    573
+   ],
+   "size": [
+    75,
+    26
+   ],
+   "inputs": [
+    {
+     "name": "",
+     "type": "*",
+     "link": 12
+    }
+   ],
+   "outputs": [
+    {
+     "name": "",
+     "type": "AUDIO",
+     "links": [
+      13
+     ]
+    }
+   ],
+   "properties": {
+    "showOutputText": false,
+    "horizontal": false
+   },
+   "widgets_values": [],
+   "order": 11,
+   "flags": {}
+  },
+  {
+   "id": 14,
+   "type": "MarkdownNote",
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "widgets_values": [
+    "- One segment is 93 frames at 25 fps (about 3.7 s). Longer audio adds segments of 80 new frames each, so time grows with the length of the voice. RTX 5090, 480p: about 1.5 to 2.5 min per segment.\n- `block_num` 1 streams the model layers through the GPU (about 13 GB allocated at 480p). `block_num` 0 loads the whole model: faster, but needs a lot more VRAM.\n- 720p is about 3x slower per step than 480p. Test at 480p first.\n- steps and both CFG values are fixed by the distilled 1.6 model. On the Model Loader, `mix_steps` 0 is about 15% faster (cached attention) but uses more VRAM; keep 4 if you run out of memory.\n"
+   ],
+   "pos": [
+    0,
+    -293
+   ],
+   "size": [
+    400,
+    248
+   ],
+   "color": "#432",
+   "bgcolor": "#653",
+   "title": "Markdown Note: Usage / Caution",
+   "order": 12,
+   "flags": {}
+  },
+  {
+   "id": 15,
+   "type": "MarkdownNote",
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "widgets_values": [
+    "- Keep `model_version` on 1.6 here and on the Model Loader. 1.6 feeds the voice without loudness normalisation, like the official 1.6 script; 1.5 normalises it.\n- Clean speech works best. For a voice over music, run it through the Vocal Extract node first.\n"
+   ],
+   "pos": [
+    -961,
+    -22
+   ],
+   "size": [
+    400,
+    116
+   ],
+   "color": "#432",
+   "bgcolor": "#653",
+   "title": "Markdown Note: Usage",
+   "order": 13,
+   "flags": {}
+  },
+  {
+   "id": 16,
+   "type": "MarkdownNote",
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "properties": {},
+   "widgets_values": [
+    "## What this workflow does\n\nTurns one portrait photo and a voice recording into a lip-synced talking video with LongCat-Video-Avatar 1.6 (official INT8 model, 8 steps). Voices longer than about 3.7 s are continued automatically in more segments.\n\n## models\n\nThe Model Loader and Whisper Loader download what they need on the first run (about 25 GB) into `models/longcat`. Only the text encoder is yours to add:\n\n- text_encoders\n  - [umt5_xxl_fp8_e4m3fn_scaled.safetensors](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors) (6.7 GB), or the fp16 one\n\n```text\n📂ComfyUI/\n└── 📂models/\n    ├── 📂text_encoders/\n    │   └── umt5_xxl_fp8_e4m3fn_scaled.safetensors\n    └── 📂longcat/            (filled automatically)\n        ├── 📂LongCat-Video-Avatar-1.6/   base_model_int8, loraA, loraB, whisper-large-v3\n        └── 📂LongCat-Video/              vae\n```\n\n## custom nodes\n\n- [ComfyUI-LongCat-Avatar-PixelAILabs](https://github.com/Pixelailabs/ComfyUI-LongCat-Avatar-PixelAILabs): PixelAI Labs LongCat Avatar Model Loader, Text Encode, Whisper Loader, Audio Encode, Sampler\n"
+   ],
+   "pos": [
+    -1440,
+    -869
+   ],
+   "size": [
+    400,
+    815
+   ],
+   "color": "#323",
+   "bgcolor": "#535",
+   "order": 14,
+   "flags": {}
+  }
+ ],
+ "links": [
+  [
+   1,
+   7,
+   0,
+   8,
+   0,
+   "MODEL"
+  ],
+  [
+   2,
+   4,
+   0,
+   8,
+   1,
+   "CONDITIONING"
+  ],
+  [
+   3,
+   6,
+   0,
+   8,
+   2,
+   "CONDITIONING"
+  ],
+  [
+   4,
+   1,
+   0,
+   8,
+   3,
+   "IMAGE"
+  ],
+  [
+   5,
+   3,
+   0,
+   4,
+   0,
+   "CLIP"
+  ],
+  [
+   6,
+   5,
+   0,
+   6,
+   0,
+   "AUDIO_ENCODER"
+  ],
+  [
+   7,
+   2,
+   0,
+   6,
+   1,
+   "AUDIO"
+  ],
+  [
+   8,
+   8,
+   0,
+   9,
+   0,
+   "IMAGE"
+  ],
+  [
+   9,
+   9,
+   0,
+   10,
+   0,
+   "VIDEO"
+  ],
+  [
+   10,
+   2,
+   0,
+   11,
+   0,
+   "AUDIO"
+  ],
+  [
+   11,
+   11,
+   0,
+   8,
+   4,
+   "AUDIO"
+  ],
+  [
+   12,
+   11,
+   0,
+   12,
+   0,
+   "AUDIO"
+  ],
+  [
+   13,
+   12,
+   0,
+   9,
+   1,
+   "AUDIO"
+  ]
+ ],
+ "groups": [],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 1,
+   "offset": [
+    0,
+    0
+   ]
+  }
+ },
+ "version": 0.4
+}
