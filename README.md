@@ -19,10 +19,21 @@ DMD/OPSD LoRA switch, and videos of any length, continued window by window. Runs
 ## Examples
 
 Each video is **one run** from one photo and one ElevenLabs voice line, 480p, seed 42. No LoRA, no face swap, no editing.
-Click a preview to watch the video with sound.
+Turn the sound on.
 
-| Tech creator, 8.7 s | Real estate agent, 9.1 s | Fitness coach, 8.9 s |
-|---|---|---|
+**Tech creator, 8.7 s**
+
+https://github.com/user-attachments/assets/72ae65a2-95be-41c2-b837-c3f1b2cdbc02
+
+**Real estate agent, 9.1 s**
+
+https://github.com/user-attachments/assets/eb368081-24e6-488c-a35e-bc5cb860d8fe
+
+**Fitness coach, 8.9 s**
+
+https://github.com/user-attachments/assets/07a1ad71-f23a-4eb6-be9b-4dc3ea8ceed0
+
+---|---|---|
 | [![Tech creator](docs/example_tech.gif)](docs/example_tech.mp4) | [![Real estate agent](docs/example_realestate.gif)](docs/example_realestate.mp4) | [![Fitness coach](docs/example_fitness.gif)](docs/example_fitness.mp4) |
 
 ---
